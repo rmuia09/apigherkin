@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot rpa="false" generated="20200408 23:27:30.181" generator="Robot 3.1.2 (Python 2.7.16 on darwin)">
+<robot rpa="false" generated="20200409 01:52:48.971" generator="Robot 3.1.2 (Python 2.7.16 on darwin)">
 <suite source="/Users/richardmuia/Documents/API -Gherkin/tests/amazon-concise.robot" id="s1" name="Amazon-Concise">
 <test id="s1-t1" name="Create Token">
 <kw name="Given session is open and response is 200 then create token" library="LandingPage">
@@ -10,8 +10,8 @@
 <arg>${Base_URL}</arg>
 <arg>disable_warnings=1</arg>
 </arguments>
-<msg timestamp="20200408 23:27:30.582" level="INFO">Creating Session using : alias=session, url=https://services-staging.tradebfx.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" endtime="20200408 23:27:30.583" starttime="20200408 23:27:30.582"></status>
+<msg timestamp="20200409 01:52:49.489" level="INFO">Creating Session using : alias=session, url=https://services-staging.tradebfx.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20200409 01:52:49.490" starttime="20200409 01:52:49.489"></status>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
@@ -21,8 +21,8 @@
 <assign>
 <var>${headers}</var>
 </assign>
-<msg timestamp="20200408 23:27:30.585" level="INFO">${headers} = {u'Content-Type': u'application/json'}</msg>
-<status status="PASS" endtime="20200408 23:27:30.585" starttime="20200408 23:27:30.584"></status>
+<msg timestamp="20200409 01:52:49.491" level="INFO">${headers} = {u'Content-Type': u'application/json'}</msg>
+<status status="PASS" endtime="20200409 01:52:49.491" starttime="20200409 01:52:49.490"></status>
 </kw>
 <kw name="Get Binary File" library="OperatingSystem">
 <doc>Returns the contents of a specified file.</doc>
@@ -32,12 +32,12 @@
 <assign>
 <var>${json}</var>
 </assign>
-<msg timestamp="20200408 23:27:30.586" html="yes" level="INFO">Getting file '&lt;a href="file:///Users/richardmuia/Documents/auth.json"&gt;/Users/richardmuia/Documents/auth.json&lt;/a&gt;'.</msg>
-<msg timestamp="20200408 23:27:30.586" level="INFO">${json} = {
+<msg timestamp="20200409 01:52:49.492" html="yes" level="INFO">Getting file '&lt;a href="file:///Users/richardmuia/Documents/auth.json"&gt;/Users/richardmuia/Documents/auth.json&lt;/a&gt;'.</msg>
+<msg timestamp="20200409 01:52:49.493" level="INFO">${json} = {
 	"email": "richard+test54@azafinance.com",
 	"password": "P@ssword2020!"
 }</msg>
-<status status="PASS" endtime="20200408 23:27:30.586" starttime="20200408 23:27:30.585"></status>
+<status status="PASS" endtime="20200409 01:52:49.493" starttime="20200409 01:52:49.492"></status>
 </kw>
 <kw name="Post Request" library="RequestsLibrary">
 <doc>Send a POST request on the session object found using the
@@ -51,15 +51,15 @@ given `alias`</doc>
 <assign>
 <var>${resp}</var>
 </assign>
-<msg timestamp="20200408 23:27:30.588" level="INFO">POST Request using : uri=/auth/login, files=None, params=None, timeout=None, allow_redirects=True
+<msg timestamp="20200409 01:52:49.494" level="INFO">POST Request using : uri=/auth/login, files=None, params=None, timeout=None, allow_redirects=True
 headers={'Connection': 'keep-alive', u'Content-Type': u'application/json', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'User-Agent': 'python-requests/2.23.0'} 
 data={
 	"email": "richard+test54@azafinance.com",
 	"password": "P@ssword2020!"
 } 
 json=None</msg>
-<msg timestamp="20200408 23:27:31.559" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
-<status status="PASS" endtime="20200408 23:27:31.559" starttime="20200408 23:27:30.587"></status>
+<msg timestamp="20200409 01:52:50.816" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20200409 01:52:50.816" starttime="20200409 01:52:49.493"></status>
 </kw>
 <kw name="Should Be Equal As Strings" library="BuiltIn">
 <doc>Fails if objects are unequal after converting them to strings.</doc>
@@ -67,10 +67,10 @@ json=None</msg>
 <arg>${resp.status_code}</arg>
 <arg>200</arg>
 </arguments>
-<msg timestamp="20200408 23:27:31.564" level="INFO">Argument types are:
+<msg timestamp="20200409 01:52:50.818" level="INFO">Argument types are:
 &lt;type 'int'&gt;
 &lt;type 'unicode'&gt;</msg>
-<status status="PASS" endtime="20200408 23:27:31.565" starttime="20200408 23:27:31.560"></status>
+<status status="PASS" endtime="20200409 01:52:50.818" starttime="20200409 01:52:50.817"></status>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
 <doc>Evaluates the given expression in Python and returns the results.</doc>
@@ -80,15 +80,15 @@ json=None</msg>
 <assign>
 <var>${accessToken}</var>
 </assign>
-<msg timestamp="20200408 23:27:31.569" level="INFO">${accessToken} = eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2NTIyZGNiYi1iNDI5LTQ1NTQtYjA2Ny1mOGU5Y2ZkMTM0ODYiLCJtZmFfcmVxdWlyZWQiOmZhbHNlLCJwX3Rva2VuIjoiZjMzOTZiMmYzNTZiZWEzZjU4Yzk1MDY3OWFhMWRhNTY3MTViNmIyN2YxNTg4NGRmOTJhOTEyMTB...</msg>
-<status status="PASS" endtime="20200408 23:27:31.569" starttime="20200408 23:27:31.566"></status>
+<msg timestamp="20200409 01:52:50.822" level="INFO">${accessToken} = eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2NTIyZGNiYi1iNDI5LTQ1NTQtYjA2Ny1mOGU5Y2ZkMTM0ODYiLCJtZmFfcmVxdWlyZWQiOmZhbHNlLCJwX3Rva2VuIjoiZjMzOTZiMmYzNTZiZWEzZjU4Yzk1MDY3OWFhMWRhNTY3MTViNmIyN2YxNTg4NGRmOTJhOTEyMTB...</msg>
+<status status="PASS" endtime="20200409 01:52:50.822" starttime="20200409 01:52:50.819"></status>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <doc>Logs the given message to the console.</doc>
 <arguments>
 <arg>${accessToken}</arg>
 </arguments>
-<status status="PASS" endtime="20200408 23:27:31.570" starttime="20200408 23:27:31.570"></status>
+<status status="PASS" endtime="20200409 01:52:50.823" starttime="20200409 01:52:50.822"></status>
 </kw>
 <kw name="Catenate" library="BuiltIn">
 <doc>Catenates the given items together and returns the resulted string.</doc>
@@ -99,30 +99,30 @@ json=None</msg>
 <assign>
 <var>${token}</var>
 </assign>
-<msg timestamp="20200408 23:27:31.572" level="INFO">${token} = Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2NTIyZGNiYi1iNDI5LTQ1NTQtYjA2Ny1mOGU5Y2ZkMTM0ODYiLCJtZmFfcmVxdWlyZWQiOmZhbHNlLCJwX3Rva2VuIjoiZjMzOTZiMmYzNTZiZWEzZjU4Yzk1MDY3OWFhMWRhNTY3MTViNmIyN2YxNTg4NGRmOTJh...</msg>
-<status status="PASS" endtime="20200408 23:27:31.572" starttime="20200408 23:27:31.571"></status>
+<msg timestamp="20200409 01:52:50.824" level="INFO">${token} = Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2NTIyZGNiYi1iNDI5LTQ1NTQtYjA2Ny1mOGU5Y2ZkMTM0ODYiLCJtZmFfcmVxdWlyZWQiOmZhbHNlLCJwX3Rva2VuIjoiZjMzOTZiMmYzNTZiZWEzZjU4Yzk1MDY3OWFhMWRhNTY3MTViNmIyN2YxNTg4NGRmOTJh...</msg>
+<status status="PASS" endtime="20200409 01:52:50.824" starttime="20200409 01:52:50.823"></status>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <doc>Logs the given message to the console.</doc>
 <arguments>
 <arg>${token}</arg>
 </arguments>
-<status status="PASS" endtime="20200408 23:27:31.573" starttime="20200408 23:27:31.572"></status>
+<status status="PASS" endtime="20200409 01:52:50.825" starttime="20200409 01:52:50.825"></status>
 </kw>
 <kw name="Set Suite Variable" library="BuiltIn">
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
 <arguments>
 <arg>${token}</arg>
 </arguments>
-<msg timestamp="20200408 23:27:31.576" level="INFO">${token} = Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2NTIyZGNiYi1iNDI5LTQ1NTQtYjA2Ny1mOGU5Y2ZkMTM0ODYiLCJtZmFfcmVxdWlyZWQiOmZhbHNlLCJwX3Rva2VuIjoiZjMzOTZiMmYzNTZiZWEzZjU4Yzk1MDY3OWFhMWRhNTY3MTViNmIyN2YxNTg4NGRmOTJh...</msg>
-<status status="PASS" endtime="20200408 23:27:31.577" starttime="20200408 23:27:31.574"></status>
+<msg timestamp="20200409 01:52:50.826" level="INFO">${token} = Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2NTIyZGNiYi1iNDI5LTQ1NTQtYjA2Ny1mOGU5Y2ZkMTM0ODYiLCJtZmFfcmVxdWlyZWQiOmZhbHNlLCJwX3Rva2VuIjoiZjMzOTZiMmYzNTZiZWEzZjU4Yzk1MDY3OWFhMWRhNTY3MTViNmIyN2YxNTg4NGRmOTJh...</msg>
+<status status="PASS" endtime="20200409 01:52:50.826" starttime="20200409 01:52:50.825"></status>
 </kw>
-<status status="PASS" endtime="20200408 23:27:31.581" starttime="20200408 23:27:30.581"></status>
+<status status="PASS" endtime="20200409 01:52:50.826" starttime="20200409 01:52:49.488"></status>
 </kw>
 <tags>
 <tag>Smoke</tag>
 </tags>
-<status status="PASS" endtime="20200408 23:27:31.581" critical="yes" starttime="20200408 23:27:30.580"></status>
+<status status="PASS" endtime="20200409 01:52:50.826" critical="yes" starttime="20200409 01:52:49.487"></status>
 </test>
 <test id="s1-t2" name="Add Recipient">
 <kw name="Given token is created and invalid recipient is created then response is not 200" library="TopNav">
@@ -135,8 +135,8 @@ json=None</msg>
 <assign>
 <var>${headers1}</var>
 </assign>
-<msg timestamp="20200408 23:27:31.589" level="INFO">${headers1} = {u'Authorization': u'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2NTIyZGNiYi1iNDI5LTQ1NTQtYjA2Ny1mOGU5Y2ZkMTM0ODYiLCJtZmFfcmVxdWlyZWQiOmZhbHNlLCJwX3Rva2VuIjoiZjMzOTZiMmYzNTZiZWEzZjU4Yzk1MDY3OWFhMWRhNTY3MTV...</msg>
-<status status="PASS" endtime="20200408 23:27:31.589" starttime="20200408 23:27:31.587"></status>
+<msg timestamp="20200409 01:52:50.832" level="INFO">${headers1} = {u'Authorization': u'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2NTIyZGNiYi1iNDI5LTQ1NTQtYjA2Ny1mOGU5Y2ZkMTM0ODYiLCJtZmFfcmVxdWlyZWQiOmZhbHNlLCJwX3Rva2VuIjoiZjMzOTZiMmYzNTZiZWEzZjU4Yzk1MDY3OWFhMWRhNTY3MTV...</msg>
+<status status="PASS" endtime="20200409 01:52:50.832" starttime="20200409 01:52:50.830"></status>
 </kw>
 <kw name="Get Binary File" library="OperatingSystem">
 <doc>Returns the contents of a specified file.</doc>
@@ -146,8 +146,8 @@ json=None</msg>
 <assign>
 <var>${json1}</var>
 </assign>
-<msg timestamp="20200408 23:27:31.590" html="yes" level="INFO">Getting file '&lt;a href="file:///Users/richardmuia/Documents/recipient.json"&gt;/Users/richardmuia/Documents/recipient.json&lt;/a&gt;'.</msg>
-<msg timestamp="20200408 23:27:31.591" level="INFO">${json1} = {
+<msg timestamp="20200409 01:52:50.834" html="yes" level="INFO">Getting file '&lt;a href="file:///Users/richardmuia/Documents/recipient.json"&gt;/Users/richardmuia/Documents/recipient.json&lt;/a&gt;'.</msg>
+<msg timestamp="20200409 01:52:50.835" level="INFO">${json1} = {
     "name": "test accounter 122",
     "street_address": "0900",
     "city": "er",
@@ -156,7 +156,7 @@ json=None</msg>
     "bank_details": {
         "bank_name": "Bnk2",
         "iban": ...</msg>
-<status status="PASS" endtime="20200408 23:27:31.591" starttime="20200408 23:27:31.589"></status>
+<status status="PASS" endtime="20200409 01:52:50.835" starttime="20200409 01:52:50.833"></status>
 </kw>
 <kw name="Post Request" library="RequestsLibrary">
 <doc>Send a POST request on the session object found using the
@@ -170,8 +170,8 @@ given `alias`</doc>
 <assign>
 <var>${response}</var>
 </assign>
-<msg timestamp="20200408 23:27:31.593" level="INFO">POST Request using : uri=/recipient-template/recipient_templates, files=None, params=None, timeout=None, allow_redirects=True
-headers={'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'User-Agent': 'python-requests/2.23.0', 'Connection': 'keep-alive', u'Content-Type': u'application/json', u'Authorization': u'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2NTIyZGNiYi1iNDI5LTQ1NTQtYjA2Ny1mOGU5Y2ZkMTM0ODYiLCJtZmFfcmVxdWlyZWQiOmZhbHNlLCJwX3Rva2VuIjoiZjMzOTZiMmYzNTZiZWEzZjU4Yzk1MDY3OWFhMWRhNTY3MTViNmIyN2YxNTg4NGRmOTJhOTEyMTBlNzhiNTU2MDU4ODBhNTUxM2IwMjE1ZThmNDk2ZTc4YTVjMmE4YTFkNGY3NTMzMTMzMTFlNjhiNWJhODRmOTU2Yzc4M2I1YWMiLCJleHAiOjE1ODYzNzgyNTEsImlzcyI6InNxdWFyZS1wZWciLCJpYXQiOjE1ODYzNzc2NTEsIm5iZiI6MTU4NjM3NzY1MX0.PQhyW50Rig4yE20ORTDr55ijdJJvZeZrZzqwgRW_y5Xa6SyP-xUSgj6p8LAY0k3EkWpb-ZQiskjkhD30O65QpQ'} 
+<msg timestamp="20200409 01:52:50.838" level="INFO">POST Request using : uri=/recipient-template/recipient_templates, files=None, params=None, timeout=None, allow_redirects=True
+headers={'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'User-Agent': 'python-requests/2.23.0', 'Connection': 'keep-alive', u'Content-Type': u'application/json', u'Authorization': u'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2NTIyZGNiYi1iNDI5LTQ1NTQtYjA2Ny1mOGU5Y2ZkMTM0ODYiLCJtZmFfcmVxdWlyZWQiOmZhbHNlLCJwX3Rva2VuIjoiZjMzOTZiMmYzNTZiZWEzZjU4Yzk1MDY3OWFhMWRhNTY3MTViNmIyN2YxNTg4NGRmOTJhOTEyMTBlNzhiNTU2MDU4ODBhNTUxM2IwMjE1ZThmNDk2ZTc4YTVjMmE4YTFkNGY3NTMzMTMzMTFlNjhiNWJhODRmOTU2Yzc4M2I1YWMiLCJleHAiOjE1ODYzODY5NzAsImlzcyI6InNxdWFyZS1wZWciLCJpYXQiOjE1ODYzODYzNzAsIm5iZiI6MTU4NjM4NjM3MH0.V2cMV4hLnGqNm0YKOHsCGZk8m6mOKZkcfRHokWIk1hgN1KpHz6Hs2QZvOFmoDR8kBpaKipR_8Xmybpozg1AgCg'} 
 data={
     "name": "test accounter 122",
     "street_address": "0900",
@@ -189,8 +189,8 @@ data={
     "recipient_type": "business"
 } 
 json=None</msg>
-<msg timestamp="20200408 23:27:32.099" level="INFO">${response} = &lt;Response [422]&gt;</msg>
-<status status="PASS" endtime="20200408 23:27:32.099" starttime="20200408 23:27:31.591"></status>
+<msg timestamp="20200409 01:52:51.416" level="INFO">${response} = &lt;Response [422]&gt;</msg>
+<status status="PASS" endtime="20200409 01:52:51.416" starttime="20200409 01:52:50.836"></status>
 </kw>
 <kw name="Should Be Equal As Strings" library="BuiltIn">
 <doc>Fails if objects are unequal after converting them to strings.</doc>
@@ -198,34 +198,134 @@ json=None</msg>
 <arg>${response.status_code}</arg>
 <arg>422</arg>
 </arguments>
-<msg timestamp="20200408 23:27:32.100" level="INFO">Argument types are:
+<msg timestamp="20200409 01:52:51.417" level="INFO">Argument types are:
 &lt;type 'int'&gt;
 &lt;type 'unicode'&gt;</msg>
-<status status="PASS" endtime="20200408 23:27:32.100" starttime="20200408 23:27:32.099"></status>
+<status status="PASS" endtime="20200409 01:52:51.417" starttime="20200409 01:52:51.416"></status>
 </kw>
-<status status="PASS" endtime="20200408 23:27:32.100" starttime="20200408 23:27:31.584"></status>
+<status status="PASS" endtime="20200409 01:52:51.417" starttime="20200409 01:52:50.829"></status>
 </kw>
 <tags>
 <tag>Smoke</tag>
 </tags>
-<status status="PASS" endtime="20200408 23:27:32.100" critical="yes" starttime="20200408 23:27:31.583"></status>
+<status status="PASS" endtime="20200409 01:52:51.418" critical="yes" starttime="20200409 01:52:50.828"></status>
+</test>
+<test id="s1-t3" name="Add Transaction">
+<kw name="Given token is created and ngn to usd transaction is created then response is 200" library="TopNav">
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Authorization=${token}</arg>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers1}</var>
+</assign>
+<msg timestamp="20200409 01:52:51.422" level="INFO">${headers1} = {u'Authorization': u'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2NTIyZGNiYi1iNDI5LTQ1NTQtYjA2Ny1mOGU5Y2ZkMTM0ODYiLCJtZmFfcmVxdWlyZWQiOmZhbHNlLCJwX3Rva2VuIjoiZjMzOTZiMmYzNTZiZWEzZjU4Yzk1MDY3OWFhMWRhNTY3MTV...</msg>
+<status status="PASS" endtime="20200409 01:52:51.423" starttime="20200409 01:52:51.420"></status>
+</kw>
+<kw name="Get Binary File" library="OperatingSystem">
+<doc>Returns the contents of a specified file.</doc>
+<arguments>
+<arg>${json_path}ngnusdtxn.json</arg>
+</arguments>
+<assign>
+<var>${json1}</var>
+</assign>
+<msg timestamp="20200409 01:52:51.424" html="yes" level="INFO">Getting file '&lt;a href="file:///Users/richardmuia/Documents/ngnusdtxn.json"&gt;/Users/richardmuia/Documents/ngnusdtxn.json&lt;/a&gt;'.</msg>
+<msg timestamp="20200409 01:52:51.425" level="INFO">${json1} = {
+    "id": "12ead5bb-e20f-4f48-85ad-cf3512f04264",
+    "recipient_id": null,
+    "input_currency": "GHS",
+    "output_currency": "USD",
+    "input_amount": 8663404.814082876,
+    "output_amount": 220...</msg>
+<status status="PASS" endtime="20200409 01:52:51.425" starttime="20200409 01:52:51.424"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>session</arg>
+<arg>/square-peg/transactions</arg>
+<arg>data=${json1}</arg>
+<arg>headers=${headers1}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20200409 01:52:51.426" level="INFO">POST Request using : uri=/square-peg/transactions, files=None, params=None, timeout=None, allow_redirects=True
+headers={'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'User-Agent': 'python-requests/2.23.0', 'Connection': 'keep-alive', u'Content-Type': u'application/json', u'Authorization': u'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2NTIyZGNiYi1iNDI5LTQ1NTQtYjA2Ny1mOGU5Y2ZkMTM0ODYiLCJtZmFfcmVxdWlyZWQiOmZhbHNlLCJwX3Rva2VuIjoiZjMzOTZiMmYzNTZiZWEzZjU4Yzk1MDY3OWFhMWRhNTY3MTViNmIyN2YxNTg4NGRmOTJhOTEyMTBlNzhiNTU2MDU4ODBhNTUxM2IwMjE1ZThmNDk2ZTc4YTVjMmE4YTFkNGY3NTMzMTMzMTFlNjhiNWJhODRmOTU2Yzc4M2I1YWMiLCJleHAiOjE1ODYzODY5NzAsImlzcyI6InNxdWFyZS1wZWciLCJpYXQiOjE1ODYzODYzNzAsIm5iZiI6MTU4NjM4NjM3MH0.V2cMV4hLnGqNm0YKOHsCGZk8m6mOKZkcfRHokWIk1hgN1KpHz6Hs2QZvOFmoDR8kBpaKipR_8Xmybpozg1AgCg'} 
+data={
+    "id": "12ead5bb-e20f-4f48-85ad-cf3512f04264",
+    "recipient_id": null,
+    "input_currency": "GHS",
+    "output_currency": "USD",
+    "input_amount": 8663404.814082876,
+    "output_amount": 22000,
+    "documents": [],
+    "payment_reference": "test",
+    "recipient_name": "test",
+    "recipient_account_name": null,
+    "recipient_first_name": null,
+    "recipient_last_name": null,
+    "recipient_street_address": "test",
+    "recipient_country": "Senegal",
+    "recipient_city": "hhhdd",
+    "recipient_bank_name": "bank of FF",
+    "recipient_correspondant_bank_name": "testte",
+    "recipient_iban": null,
+    "recipient_bic": "6634gg4",
+    "recipient_routing_number": "6634gg4",
+    "recipient_bank_account": "12345678",
+    "recipient_bank_account_type": "",
+    "recipient_bank_code": "",
+    "recipient_bank_branch": "",
+    "recipient_bank_branch_code": "",
+    "trade_id": 5261970,
+    "state": "pending",
+    "created_at": "2020-04-08T22:09:29.472+00:00",
+    "exchange_rate": 393.791127912858
+} 
+json=None</msg>
+<msg timestamp="20200409 01:52:54.629" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" endtime="20200409 01:52:54.629" starttime="20200409 01:52:51.425"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+<arg>201</arg>
+</arguments>
+<msg timestamp="20200409 01:52:54.631" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20200409 01:52:54.631" starttime="20200409 01:52:54.629"></status>
+</kw>
+<status status="PASS" endtime="20200409 01:52:54.632" starttime="20200409 01:52:51.420"></status>
+</kw>
+<tags>
+<tag>Transaction</tag>
+</tags>
+<status status="PASS" endtime="20200409 01:52:54.632" critical="yes" starttime="20200409 01:52:51.418"></status>
 </test>
 <doc>These test cases use a 2nd level keyword to wrap up multiple 1st level keywords for brevity</doc>
-<status status="PASS" endtime="20200408 23:27:32.101" starttime="20200408 23:27:30.183"></status>
+<status status="PASS" endtime="20200409 01:52:54.633" starttime="20200409 01:52:48.985"></status>
 </suite>
 <statistics>
 <total>
-<stat fail="0" pass="2">Critical Tests</stat>
-<stat fail="0" pass="2">All Tests</stat>
+<stat fail="0" pass="3">Critical Tests</stat>
+<stat fail="0" pass="3">All Tests</stat>
 </total>
 <tag>
 <stat fail="0" pass="2">Smoke</stat>
+<stat fail="0" pass="1">Transaction</stat>
 </tag>
 <suite>
-<stat fail="0" id="s1" name="Amazon-Concise" pass="2">Amazon-Concise</stat>
+<stat fail="0" id="s1" name="Amazon-Concise" pass="3">Amazon-Concise</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20200408 23:27:30.578" level="ERROR">Error in file '/Users/richardmuia/Documents/API -Gherkin/Resources/PO/TopNav.robot': Resource file '../Resources/PO/LandingPage.robot' does not exist.</msg>
+<msg timestamp="20200409 01:52:49.485" level="ERROR">Error in file '/Users/richardmuia/Documents/API -Gherkin/Resources/PO/TopNav.robot': Resource file '../Resources/PO/LandingPage.robot' does not exist.</msg>
 </errors>
 </robot>

@@ -25,6 +25,9 @@ Add Recipient
     [Tags]  Smoke
     Given token is created and invalid recipient is created then response is not 200
 
+Add Transaction
+    [Tags]  Transaction
+    Given token is created and ngn to usd transaction is created then response is 200
 
 
 
