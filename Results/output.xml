@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot rpa="false" generated="20200408 23:27:30.181" generator="Robot 3.1.2 (Python 2.7.16 on darwin)">
+<suite source="/Users/richardmuia/Documents/API -Gherkin/tests/amazon-concise.robot" id="s1" name="Amazon-Concise">
+<test id="s1-t1" name="Create Token">
+<kw name="Given session is open and response is 200 then create token" library="LandingPage">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>session</arg>
+<arg>${Base_URL}</arg>
+<arg>disable_warnings=1</arg>
+</arguments>
+<msg timestamp="20200408 23:27:30.582" level="INFO">Creating Session using : alias=session, url=https://services-staging.tradebfx.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20200408 23:27:30.583" starttime="20200408 23:27:30.582"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200408 23:27:30.585" level="INFO">${headers} = {u'Content-Type': u'application/json'}</msg>
+<status status="PASS" endtime="20200408 23:27:30.585" starttime="20200408 23:27:30.584"></status>
+</kw>
+<kw name="Get Binary File" library="OperatingSystem">
+<doc>Returns the contents of a specified file.</doc>
+<arguments>
+<arg>${json_path}auth.json</arg>
+</arguments>
+<assign>
+<var>${json}</var>
+</assign>
+<msg timestamp="20200408 23:27:30.586" html="yes" level="INFO">Getting file '&lt;a href="file:///Users/richardmuia/Documents/auth.json"&gt;/Users/richardmuia/Documents/auth.json&lt;/a&gt;'.</msg>
+<msg timestamp="20200408 23:27:30.586" level="INFO">${json} = {
+	"email": "richard+test54@azafinance.com",
+	"password": "P@ssword2020!"
+}</msg>
+<status status="PASS" endtime="20200408 23:27:30.586" starttime="20200408 23:27:30.585"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>session</arg>
+<arg>/auth/login</arg>
+<arg>data=${json}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200408 23:27:30.588" level="INFO">POST Request using : uri=/auth/login, files=None, params=None, timeout=None, allow_redirects=True
+headers={'Connection': 'keep-alive', u'Content-Type': u'application/json', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'User-Agent': 'python-requests/2.23.0'} 
+data={
+	"email": "richard+test54@azafinance.com",
+	"password": "P@ssword2020!"
+} 
+json=None</msg>
+<msg timestamp="20200408 23:27:31.559" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20200408 23:27:31.559" starttime="20200408 23:27:30.587"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200408 23:27:31.564" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20200408 23:27:31.565" starttime="20200408 23:27:31.560"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>$resp.json().get("access_token")</arg>
+</arguments>
+<assign>
+<var>${accessToken}</var>
+</assign>
+<msg timestamp="20200408 23:27:31.569" level="INFO">${accessToken} = eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2NTIyZGNiYi1iNDI5LTQ1NTQtYjA2Ny1mOGU5Y2ZkMTM0ODYiLCJtZmFfcmVxdWlyZWQiOmZhbHNlLCJwX3Rva2VuIjoiZjMzOTZiMmYzNTZiZWEzZjU4Yzk1MDY3OWFhMWRhNTY3MTViNmIyN2YxNTg4NGRmOTJhOTEyMTB...</msg>
+<status status="PASS" endtime="20200408 23:27:31.569" starttime="20200408 23:27:31.566"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${accessToken}</arg>
+</arguments>
+<status status="PASS" endtime="20200408 23:27:31.570" starttime="20200408 23:27:31.570"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>Bearer</arg>
+<arg>${accessToken}</arg>
+</arguments>
+<assign>
+<var>${token}</var>
+</assign>
+<msg timestamp="20200408 23:27:31.572" level="INFO">${token} = Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2NTIyZGNiYi1iNDI5LTQ1NTQtYjA2Ny1mOGU5Y2ZkMTM0ODYiLCJtZmFfcmVxdWlyZWQiOmZhbHNlLCJwX3Rva2VuIjoiZjMzOTZiMmYzNTZiZWEzZjU4Yzk1MDY3OWFhMWRhNTY3MTViNmIyN2YxNTg4NGRmOTJh...</msg>
+<status status="PASS" endtime="20200408 23:27:31.572" starttime="20200408 23:27:31.571"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${token}</arg>
+</arguments>
+<status status="PASS" endtime="20200408 23:27:31.573" starttime="20200408 23:27:31.572"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${token}</arg>
+</arguments>
+<msg timestamp="20200408 23:27:31.576" level="INFO">${token} = Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2NTIyZGNiYi1iNDI5LTQ1NTQtYjA2Ny1mOGU5Y2ZkMTM0ODYiLCJtZmFfcmVxdWlyZWQiOmZhbHNlLCJwX3Rva2VuIjoiZjMzOTZiMmYzNTZiZWEzZjU4Yzk1MDY3OWFhMWRhNTY3MTViNmIyN2YxNTg4NGRmOTJh...</msg>
+<status status="PASS" endtime="20200408 23:27:31.577" starttime="20200408 23:27:31.574"></status>
+</kw>
+<status status="PASS" endtime="20200408 23:27:31.581" starttime="20200408 23:27:30.581"></status>
+</kw>
+<tags>
+<tag>Smoke</tag>
+</tags>
+<status status="PASS" endtime="20200408 23:27:31.581" critical="yes" starttime="20200408 23:27:30.580"></status>
+</test>
+<test id="s1-t2" name="Add Recipient">
+<kw name="Given token is created and invalid recipient is created then response is not 200" library="TopNav">
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Authorization=${token}</arg>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers1}</var>
+</assign>
+<msg timestamp="20200408 23:27:31.589" level="INFO">${headers1} = {u'Authorization': u'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2NTIyZGNiYi1iNDI5LTQ1NTQtYjA2Ny1mOGU5Y2ZkMTM0ODYiLCJtZmFfcmVxdWlyZWQiOmZhbHNlLCJwX3Rva2VuIjoiZjMzOTZiMmYzNTZiZWEzZjU4Yzk1MDY3OWFhMWRhNTY3MTV...</msg>
+<status status="PASS" endtime="20200408 23:27:31.589" starttime="20200408 23:27:31.587"></status>
+</kw>
+<kw name="Get Binary File" library="OperatingSystem">
+<doc>Returns the contents of a specified file.</doc>
+<arguments>
+<arg>${json_path}recipient.json</arg>
+</arguments>
+<assign>
+<var>${json1}</var>
+</assign>
+<msg timestamp="20200408 23:27:31.590" html="yes" level="INFO">Getting file '&lt;a href="file:///Users/richardmuia/Documents/recipient.json"&gt;/Users/richardmuia/Documents/recipient.json&lt;/a&gt;'.</msg>
+<msg timestamp="20200408 23:27:31.591" level="INFO">${json1} = {
+    "name": "test accounter 122",
+    "street_address": "0900",
+    "city": "er",
+    "country": "Albania",
+    "currency": "USD",
+    "bank_details": {
+        "bank_name": "Bnk2",
+        "iban": ...</msg>
+<status status="PASS" endtime="20200408 23:27:31.591" starttime="20200408 23:27:31.589"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>session</arg>
+<arg>/recipient-template/recipient_templates</arg>
+<arg>data=${json1}</arg>
+<arg>headers=${headers1}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20200408 23:27:31.593" level="INFO">POST Request using : uri=/recipient-template/recipient_templates, files=None, params=None, timeout=None, allow_redirects=True
+headers={'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'User-Agent': 'python-requests/2.23.0', 'Connection': 'keep-alive', u'Content-Type': u'application/json', u'Authorization': u'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2NTIyZGNiYi1iNDI5LTQ1NTQtYjA2Ny1mOGU5Y2ZkMTM0ODYiLCJtZmFfcmVxdWlyZWQiOmZhbHNlLCJwX3Rva2VuIjoiZjMzOTZiMmYzNTZiZWEzZjU4Yzk1MDY3OWFhMWRhNTY3MTViNmIyN2YxNTg4NGRmOTJhOTEyMTBlNzhiNTU2MDU4ODBhNTUxM2IwMjE1ZThmNDk2ZTc4YTVjMmE4YTFkNGY3NTMzMTMzMTFlNjhiNWJhODRmOTU2Yzc4M2I1YWMiLCJleHAiOjE1ODYzNzgyNTEsImlzcyI6InNxdWFyZS1wZWciLCJpYXQiOjE1ODYzNzc2NTEsIm5iZiI6MTU4NjM3NzY1MX0.PQhyW50Rig4yE20ORTDr55ijdJJvZeZrZzqwgRW_y5Xa6SyP-xUSgj6p8LAY0k3EkWpb-ZQiskjkhD30O65QpQ'} 
+data={
+    "name": "test accounter 122",
+    "street_address": "0900",
+    "city": "er",
+    "country": "Albania",
+    "currency": "USD",
+    "bank_details": {
+        "bank_name": "Bnk2",
+        "iban": "",
+        "bic": "",
+        "routing_number": "",
+        "bank_account": "09000012222"
+    },
+    "payment_type": "bank",
+    "recipient_type": "business"
+} 
+json=None</msg>
+<msg timestamp="20200408 23:27:32.099" level="INFO">${response} = &lt;Response [422]&gt;</msg>
+<status status="PASS" endtime="20200408 23:27:32.099" starttime="20200408 23:27:31.591"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+<arg>422</arg>
+</arguments>
+<msg timestamp="20200408 23:27:32.100" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20200408 23:27:32.100" starttime="20200408 23:27:32.099"></status>
+</kw>
+<status status="PASS" endtime="20200408 23:27:32.100" starttime="20200408 23:27:31.584"></status>
+</kw>
+<tags>
+<tag>Smoke</tag>
+</tags>
+<status status="PASS" endtime="20200408 23:27:32.100" critical="yes" starttime="20200408 23:27:31.583"></status>
+</test>
+<doc>These test cases use a 2nd level keyword to wrap up multiple 1st level keywords for brevity</doc>
+<status status="PASS" endtime="20200408 23:27:32.101" starttime="20200408 23:27:30.183"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="2">Critical Tests</stat>
+<stat fail="0" pass="2">All Tests</stat>
+</total>
+<tag>
+<stat fail="0" pass="2">Smoke</stat>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Amazon-Concise" pass="2">Amazon-Concise</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20200408 23:27:30.578" level="ERROR">Error in file '/Users/richardmuia/Documents/API -Gherkin/Resources/PO/TopNav.robot': Resource file '../Resources/PO/LandingPage.robot' does not exist.</msg>
+</errors>
+</robot>

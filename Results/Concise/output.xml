@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot rpa="false" generated="20200408 21:56:28.563" generator="Robot 3.1.2 (Python 2.7.16 on darwin)">
+<suite source="/Users/richardmuia/Documents/API -Gherkin/tests/amazon-concise.robot" id="s1" name="Amazon-Concise">
+<test id="s1-t1" name="Create Token">
+<kw name="Given session is open" library="AmazonApp">
+<kw name="Open session" library="LandingPage">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>session</arg>
+<arg>${Base_URL}</arg>
+<arg>disable_warnings=1</arg>
+</arguments>
+<msg timestamp="20200408 21:56:29.025" level="INFO">Creating Session using : alias=session, url=https://services-staging.tradebfx.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20200408 21:56:29.026" starttime="20200408 21:56:29.025"></status>
+</kw>
+<status status="PASS" endtime="20200408 21:56:29.026" starttime="20200408 21:56:29.024"></status>
+</kw>
+<status status="PASS" endtime="20200408 21:56:29.026" starttime="20200408 21:56:29.024"></status>
+</kw>
+<kw name="When user is logged in" library="AmazonApp">
+<kw name="valid login" library="LandingPage">
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200408 21:56:29.030" level="INFO">${headers} = {u'Content-Type': u'application/json'}</msg>
+<status status="PASS" endtime="20200408 21:56:29.030" starttime="20200408 21:56:29.028"></status>
+</kw>
+<kw name="Get Binary File" library="OperatingSystem">
+<doc>Returns the contents of a specified file.</doc>
+<arguments>
+<arg>${json_path}}auth.json</arg>
+</arguments>
+<assign>
+<var>${json}</var>
+</assign>
+<msg timestamp="20200408 21:56:29.031" html="yes" level="INFO">Getting file '&lt;a href="file:///Users/richardmuia/Documents/}auth.json"&gt;/Users/richardmuia/Documents/}auth.json&lt;/a&gt;'.</msg>
+<msg timestamp="20200408 21:56:29.031" level="FAIL">IOError: [Errno 2] No such file or directory: u'/Users/richardmuia/Documents/}auth.json'</msg>
+<status status="FAIL" endtime="20200408 21:56:29.032" starttime="20200408 21:56:29.031"></status>
+</kw>
+<status status="FAIL" endtime="20200408 21:56:29.032" starttime="20200408 21:56:29.027"></status>
+</kw>
+<status status="FAIL" endtime="20200408 21:56:29.032" starttime="20200408 21:56:29.027"></status>
+</kw>
+<tags>
+<tag>Smoke</tag>
+</tags>
+<status status="FAIL" endtime="20200408 21:56:29.032" critical="yes" starttime="20200408 21:56:29.022">IOError: [Errno 2] No such file or directory: u'/Users/richardmuia/Documents/}auth.json'</status>
+</test>
+<doc>These test cases use a 2nd level keyword to wrap up multiple 1st level keywords for brevity</doc>
+<status status="FAIL" endtime="20200408 21:56:29.034" starttime="20200408 21:56:28.566"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="1" pass="0">Critical Tests</stat>
+<stat fail="1" pass="0">All Tests</stat>
+</total>
+<tag>
+<stat fail="1" pass="0">Smoke</stat>
+</tag>
+<suite>
+<stat fail="1" id="s1" name="Amazon-Concise" pass="0">Amazon-Concise</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
